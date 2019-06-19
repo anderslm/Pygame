@@ -6,7 +6,7 @@ def main():
 	
 	pygame.display.set_caption("Hello Pygame")
 	
-	man = pygame.image.load("man100x100.png")
+	man = pygame.image.load("face-open.png")
 	position = 50
 	move_speed = 0.001
 	screen = pygame.display.set_mode((600, 400))
@@ -26,13 +26,13 @@ def main():
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_RIGHT:
 					move_right = True
+					move_left = False
 				if event.key == pygame.K_LEFT:
 					move_left = True
-			if event.type == pygame.KEYUP:
-				if event.key == pygame.K_RIGHT:
 					move_right = False
-				if event.key == pygame.K_LEFT:
-					move_left = False
+			if event.type == pygame.KEYUP:
+				move_left = False
+				move_right = False
 		if move_right:
 			position += 1
 			time.sleep(move_speed)
